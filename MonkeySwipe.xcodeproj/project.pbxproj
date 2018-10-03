@@ -328,6 +328,8 @@
 		90B63AE0114851970056BA04 /* test_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B63ADF114851970056BA04 /* test_texture.png */; };
 		90B63AF11148564C0056BA04 /* eat_edit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B63AF01148564C0056BA04 /* eat_edit.wav */; };
 		90B63AFB114857520056BA04 /* okay_edit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B63AFA114857520056BA04 /* okay_edit.wav */; };
+		90ED3CA3216509BA00A78E5D /* MainRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90ED3CA1216509BA00A78E5D /* MainRootViewController.m */; };
+		90ED3CA4216509BA00A78E5D /* MainRootViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 90ED3CA2216509BA00A78E5D /* MainRootViewController.h */; };
 		90FF222D1670B31D00EBE634 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FF222C1670B31C00EBE634 /* Icon.png */; };
 		90FF222F1670B32C00EBE634 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FF222E1670B32C00EBE634 /* Icon@2x.png */; };
 		90FF22341670B34300EBE634 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FF22301670B34200EBE634 /* Icon-72.png */; };
@@ -878,6 +880,8 @@
 		90B63ADF114851970056BA04 /* test_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_texture.png; sourceTree = "<group>"; };
 		90B63AF01148564C0056BA04 /* eat_edit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = eat_edit.wav; sourceTree = "<group>"; };
 		90B63AFA114857520056BA04 /* okay_edit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = okay_edit.wav; sourceTree = "<group>"; };
+		90ED3CA1216509BA00A78E5D /* MainRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainRootViewController.m; sourceTree = "<group>"; };
+		90ED3CA2216509BA00A78E5D /* MainRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainRootViewController.h; sourceTree = "<group>"; };
 		90FF222C1670B31C00EBE634 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		90FF222E1670B32C00EBE634 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		90FF22301670B34200EBE634 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -1245,6 +1249,8 @@
 				1F3B9A2C0EF2145700286867 /* oneononeAppDelegate.h */,
 				1F3B9A2B0EF2145700286867 /* oneononeAppDelegate.mm */,
 				9045DFF511513F1A00FBFAD9 /* LoseTransition.h */,
+				90ED3CA2216509BA00A78E5D /* MainRootViewController.h */,
+				90ED3CA1216509BA00A78E5D /* MainRootViewController.m */,
 				FAB287D41192CC1C00781150 /* Appirater.h */,
 				FAB287D51192CC1C00781150 /* Appirater.m */,
 				9045DFF611513F1A00FBFAD9 /* LoseTransition.m */,
@@ -2098,6 +2104,7 @@
 				FAF6E9F9115CD6480057333B /* OOOStoreView.h in Headers */,
 				FAF6EAD1115CF3B10057333B /* OOOStoreObserver.h in Headers */,
 				FAEE97FF115FF044006E520F /* BombSprite.h in Headers */,
+				90ED3CA4216509BA00A78E5D /* MainRootViewController.h in Headers */,
 				FA9985E31160A4D80015B4EA /* UpgradeTransition.h in Headers */,
 				FA6699531163FB94000A182E /* OOOGameSettingsManager.h in Headers */,
 				FA2B348A116A79E800705253 /* SurvivalModeEndedTransition.h in Headers */,
@@ -2414,6 +2421,7 @@
 				FAEE9800115FF044006E520F /* BombSprite.mm in Sources */,
 				FA9985E41160A4D80015B4EA /* UpgradeTransition.m in Sources */,
 				FA6699521163FB94000A182E /* OOOGameSettingsManager.m in Sources */,
+				90ED3CA3216509BA00A78E5D /* MainRootViewController.m in Sources */,
 				FA2B348B116A79E800705253 /* SurvivalModeEndedTransition.m in Sources */,
 				FAC4ACE01175F96E00BBB4B2 /* FinalTransition.m in Sources */,
 				FA77F62F1177A83C00351CFC /* DailySwipeEndedTransition.m in Sources */,
@@ -2593,7 +2601,7 @@
 				PRODUCT_NAME = MonkeySwipe;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				VALID_ARCHS = arm64;
+				VALID_ARCHS = "arm64 armv7s armv7";
 				WARNING_CFLAGS = "-Wall";
 			};
 			name = Debug;
@@ -2627,7 +2635,7 @@
 				PRODUCT_NAME = MonkeySwipe;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				VALID_ARCHS = arm64;
+				VALID_ARCHS = "arm64 armv7s armv7";
 				WARNING_CFLAGS = "-Wall";
 			};
 			name = Release;
@@ -2669,7 +2677,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: J. VAN GOOR (Q6X76246WS)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -2681,7 +2689,7 @@
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FAD18B43-C9C6-44E9-ACE4-DFEEF8F236F0";
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "armv7 armv7s armv6";
+				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
 			name = Debug;
 		};
@@ -2689,7 +2697,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: J. VAN GOOR (Q6X76246WS)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OBJC_CALL_CXX_CDTORS = YES;
@@ -2703,7 +2711,7 @@
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FAD18B43-C9C6-44E9-ACE4-DFEEF8F236F0";
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "armv7 armv7s armv6";
+				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
 			name = Release;
 		};
@@ -2711,7 +2719,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_ENTITLEMENTS = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: J. VAN GOOR";
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -2726,7 +2734,7 @@
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D9305D38-7528-4D2A-B2E3-6BAB32BC481A";
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "armv7 armv7s armv6";
+				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
 			name = adhoc;
 		};
@@ -2759,7 +2767,7 @@
 				PRODUCT_NAME = MonkeySwipe;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				VALID_ARCHS = arm64;
+				VALID_ARCHS = "arm64 armv7s armv7";
 				WARNING_CFLAGS = "-Wall";
 			};
 			name = adhoc;
@@ -2785,7 +2793,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: J. VAN GOOR";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OBJC_CALL_CXX_CDTORS = YES;
@@ -2800,7 +2808,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9C5A9BC8-8FB2-4ED3-98A2-360BAC0B0020";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "armv7 armv7s armv6";
+				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
 			name = appstore;
 		};
@@ -2832,7 +2840,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = MonkeySwipe;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				VALID_ARCHS = arm64;
+				VALID_ARCHS = "arm64 armv7s armv7";
 				WARNING_CFLAGS = "-Wall";
 			};
 			name = appstore;

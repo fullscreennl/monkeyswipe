@@ -124,10 +124,10 @@
 	CGPoint location = [touch locationInView: [touch view]];
 	[[SimpleAudioEngine sharedEngine] playEffect:@"btnTap.wav"];
 	//NSLog(@"touches pos: %3f",location.y);
-	if(location.y > 352.0f ) {
+	if(location.x > 352.0f ) {
 		[[OOOLevelManager sharedLevelManager] incrementLevel];
 		[self goNextLevel];
-	}else if(location.y < 100.0f){
+	}else if(location.x < 100.0f){
 		[self goMenu];
 	}else{
 		[self goNextLevel];

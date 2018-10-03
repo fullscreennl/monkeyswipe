@@ -26,6 +26,7 @@
 #import "DailySwipeEndedTransition.h"
 #import "RandomSwipeEndedTransition.h"
 #import "Appirater.h"
+#import "MainRootViewController.h"
 
 
 @implementation oneononeAppDelegate
@@ -34,6 +35,8 @@
 
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
+    
+    
 	
 	// Init the window
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -62,24 +65,32 @@
 	[CCTexture2D setDefaultAlphaPixelFormat:kTexture2DPixelFormat_RGBA8888];
 	
 	// before creating any layer, set the landscape mode
-	[[CCDirector sharedDirector] setDeviceOrientation:CCDeviceOrientationLandscapeLeft];
+	//[[CCDirector sharedDirector] setDeviceOrientation:CCDeviceOrientationLandscapeLeft];
 	[[CCDirector sharedDirector] setAnimationInterval:1.0/60];
 	//[[CCDirector sharedDirector] setDisplayFPS:YES];
 	
 	// create an openGL view inside a window
-	[[CCDirector sharedDirector] attachInView:window];	
+		
 	controller = [[UIViewController alloc] init];
     
     [controller.view setUserInteractionEnabled:NO];
+    
+    MainRootViewController *vc = [[[MainRootViewController alloc] init] autorelease];
+    
+    //[vc setView:[CCDirector sharedDirector].openGLView];
+    [window setRootViewController:vc];
+    [vc.view setBackgroundColor:[UIColor greenColor] ];
     [window makeKeyAndVisible];
-	   
+    
+    [[CCDirector sharedDirector] attachInView:vc.view];
 	//gameModel = [[[OOOGameModel alloc] init] retain];
 		
 	MainSplash	*mainSplash = [MainSplash scene];
 	
 	[[CCDirector sharedDirector] runWithScene: (CCScene*) mainSplash];
-	[mainSplash go];
-	
+    NSLog(@"mainSplash1 %@", mainSplash);
+    [mainSplash go];
+	NSLog(@"mainSplash2 %@", mainSplash);
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(onWin:) 
@@ -173,7 +184,8 @@
 	
 	[CCBitmapFontAtlas bitmapFontAtlasWithString:@"Loading!" fntFile:@"marker_felt2.fnt"];
 	
-	[Appirater appLaunched];
+    [Appirater appLaunched];
+    
 
 }
 

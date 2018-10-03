@@ -95,11 +95,17 @@
 		
 		[SimpleAudioEngine sharedEngine].muted = YES; //buggur!!!!!!!!!
 		//reading from Documents path
+        CCLOG(@"simpleaudioengine loaded");
 		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 		NSString *documentsDirectory = [paths objectAtIndex:0];
 		NSString *appSettingsPath = [documentsDirectory stringByAppendingPathComponent:@"settings.plist"];
 		NSMutableDictionary *settings2 = [NSMutableDictionary dictionaryWithContentsOfFile:appSettingsPath];
+        if(settings2 == nil){
+            NSString *file = [[NSBundle mainBundle] pathForResource:@"settings" ofType:@"plist"];
+            settings2 = [[NSMutableDictionary dictionaryWithContentsOfFile:file] retain];
+        }
 		[[OOOGameSettingsManager sharedManager] setSettings:settings2];
+        NSLog(@"settings: %@", settings2 );
 		/*
 		//reading sound config file in bundle
 		NSString *file = [[NSBundle mainBundle] pathForResource:@"settings" ofType:@"plist"];
