@@ -1,0 +1,20 @@
+import LevelBuilder
+from sprites import *
+def render(name,bg):
+    lb = LevelBuilder.LevelBuilder(name+".plist",background=bg)
+    lb.addObject(Beam.BeamSprite(x=225, y=58,width=227,height=14,angle='90',restitution=0.2,static='true',friction=0.5,density=20 ).setName('Beam'))
+    lb.addObject(Enemy.EnemySprite(x=225, y=214,width=82,height=82,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Hero.HeroSprite(x=29, y=25,width=32,height=32))
+    lb.addObject(Hero.HeroSprite(x=19, y=57,width=32,height=32))
+    lb.addObject(Hero.HeroSprite(x=51, y=57,width=32,height=32))
+    lb.addObject(Star.StarSprite(x=452, y=23,width=32,height=32))
+    lb.addObject(Hero.HeroSprite(x=95, y=25,width=32,height=32))
+    lb.addObject(Hero.HeroSprite(x=161, y=16,width=32,height=32))
+    lb.addObject(Hero.HeroSprite(x=117, y=57,width=32,height=32))
+    lb.addObject(Hero.HeroSprite(x=161, y=56,width=32,height=32))
+    lb.addObject(Hero.HeroSprite(x=53, y=89,width=32,height=32))
+    lb.addObject(Hero.HeroSprite(x=193, y=29,width=32,height=32))
+    lb.addObject(Hero.HeroSprite(x=21, y=84,width=32,height=32))
+    lb.addObject(Hero.HeroSprite(x=95, y=51,width=32,height=32))
+    lb.addObject(Hero.HeroSprite(x=117, y=19,width=32,height=32))
+    lb.render()

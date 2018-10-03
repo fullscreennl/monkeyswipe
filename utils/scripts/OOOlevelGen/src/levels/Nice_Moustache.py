@@ -1,0 +1,21 @@
+import LevelBuilder
+from sprites import *
+def render(name,bg):
+    lb = LevelBuilder.LevelBuilder(name+".plist",background=bg)
+    lb.addObject(Star.StarSprite(x=253, y=16,width=18,height=18))
+    lb.addObject(Hero.HeroSprite(x=18, y=17,width=32,height=32))
+    lb.addObject(Enemy.EnemySprite(x=286, y=15,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Enemy.EnemySprite(x=220, y=15,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Beam.BeamSprite(x=253, y=39,width=127,height=14,angle='0' ,restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Enemy.EnemySprite(x=253, y=115,width=138,height=138,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Enemy.EnemySprite(x=185, y=13,width=24,height=24,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Enemy.EnemySprite(x=139, y=13,width=24,height=24,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Enemy.EnemySprite(x=100, y=13,width=24,height=24,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Enemy.EnemySprite(x=409, y=13,width=24,height=24,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Enemy.EnemySprite(x=363, y=13,width=24,height=24,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Enemy.EnemySprite(x=324, y=13,width=24,height=24,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Wizard.WizardSprite(x=456,y=70))
+    lb.addObject(Enemy.EnemySprite(x=253, y=16,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ).setName('StarEnemy'))
+    lb.addObject(Joints.RevoluteJoint(body1='Star',body2='StarEnemy',motor_speed='50',enable_motor='false',torque='1000',lower_angle='12',upper_angle='50',userData='star_joint',enable_limit='false',collide_connected='false'))
+    lb.addObject(Contacts.Contact(body1='Hero',body2=':hat_top',event_name='onReleaseStar'))
+    lb.render()

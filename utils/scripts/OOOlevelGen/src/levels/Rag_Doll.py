@@ -1,0 +1,20 @@
+import LevelBuilder
+from sprites import *
+def render(name,bg):
+    lb = LevelBuilder.LevelBuilder(name+".plist",background=bg)
+    lb.addObject(Hero.HeroSprite(x=67, y=75,width=32,height=32))
+    lb.addObject(Beam.BeamSprite(x=69, y=31,width=53,height=30,angle='-90',restitution=0.2,static='false',friction=0.5,density=1 ).setName('corps'))
+    lb.addObject(Beam.BeamSprite(x=105, y=50,width=57,height=14,angle='0',restitution=0.2,static='false',friction=0.5,density=1 ).setName('right_arm'))
+    lb.addObject(Beam.BeamSprite(x=31, y=50,width=57,height=14,angle='0',restitution=0.2,static='false',friction=0.5,density=1 ).setName('left_arm'))
+    lb.addObject(Beam.BeamSprite(x=35, y=9,width=57,height=14,angle='0',restitution=0.2,static='false',friction=0.5,density=1 ).setName('left_leg'))
+    lb.addObject(Beam.BeamSprite(x=105, y=9,width=57,height=14,angle='0',restitution=0.2,static='false',friction=0.5,density=1 ).setName('right_leg'))
+    lb.addObject(Joints.DistanceJoint(body1='left_arm',body2='corps',damping='0.2',freq='20' , b1_Xoffset = '25' , b2_Xoffset = '-15' , b2_Yoffset = '25' ))
+    lb.addObject(Joints.DistanceJoint(body1='right_arm',body2='corps',damping='0.2',freq='20' , b1_Xoffset = '-25' , b2_Xoffset = '15' , b2_Yoffset = '25' ))
+    lb.addObject(Joints.DistanceJoint(body1='left_leg',body2='corps',damping='0.2',freq='20' , b1_Xoffset = '25' , b2_Xoffset = '-15' , b2_Yoffset = '-25' ))
+    lb.addObject(Joints.DistanceJoint(body1='Hero',body2='corps',damping='0.2',freq='20' , b2_Yoffset = '25' ))
+    lb.addObject(Joints.DistanceJoint(body1='right_leg',body2='corps',damping='0.2',freq='20' , b1_Xoffset = '-25' , b2_Xoffset = '15' , b2_Yoffset = '-25' ))
+    lb.addObject(Star.StarSprite(x=460, y=239,width=32,height=32))
+    lb.addObject(Beam.BeamSprite(x=417, y=216,width=127,height=14,angle='0',restitution=0.2,static='true',friction=0.5,density=20 ).setName('Beam'))
+    lb.addObject(Friend.FriendSprite(x=166, y=184,width=32,height=32,angle='0',restitution=0.9,static='false',friction=0.5,density=20 ).setName('Friend'))
+    lb.addObject(Enemy.EnemySprite(x=374, y=266,width=86,height=86,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.render()

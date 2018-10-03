@@ -1,0 +1,22 @@
+import LevelBuilder
+from sprites import *
+def render(name,bg):
+    lb = LevelBuilder.LevelBuilder(name+".plist",background=bg)
+    lb.addObject(Beam.BeamSprite(x=389, y=39,width=127,height=14,angle='0' ,restitution=0.9,static='false',friction=30,density=34 ))
+    lb.addObject(Enemy.EnemySprite(x=342, y=17,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Enemy.EnemySprite(x=437, y=16,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Bomb.BombSprite(x=350, y=62,width=32,height=32 ,restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Bomb.BombSprite(x=425, y=62,width=32,height=32 ,restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Beam.BeamSprite(x=389, y=85,width=127,height=14,angle='0' ,restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Beam.BeamSprite(x=347, y=155,width=127,height=42,angle='90' ,restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Beam.BeamSprite(x=432, y=155,width=127,height=42,angle='90' ,restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Star.StarSprite(x=388, y=108,width=32,height=32))
+    lb.addObject(Enemy.EnemySprite(x=388, y=141,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Beam.BeamSprite(x=390, y=225,width=127,height=14,angle='0' ,restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Enemy.EnemySprite(x=389, y=264,width=64,height=64,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Hero.HeroSprite(x=77, y=76,width=32,height=32))
+    lb.addObject(Beam.BeamSprite(x=98, y=36,width=191,height=52,angle='45' ,restitution=0,static='true',friction=0,density=0 ))
+    lb.addObject(Beam.BeamSprite(x=36, y=96,width=191,height=52,angle='45' ,restitution=0,static='true',friction=0,density=0 ))
+    lb.addObject(Beam.BeamSprite(x=171, y=3,width=144,height=135,angle='135' ,restitution=0,static='true',friction=0,density=0 ))
+    lb.addObject(Beam.BeamSprite(x=1, y=172,width=136,height=135,angle='135' ,restitution=0,static='true',friction=0,density=0 ))
+    lb.render()

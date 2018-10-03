@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>currentlevel</key>
+	<integer>0</integer>
+	<key>survival_highscore</key>
+	<integer>0</integer>
+	<key>tutorials</key>
+	<array>
+		<dict>
+			<key>id</key>
+			<string>leveldata_2/tutorial_1</string>
+			<key>score</key>
+			<integer>0</integer>
+			<key>pic</key>
+			<string>IMG_0119.PNG</string>
+			<key>levelTitle</key>
+			<string>Meet the star</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>leveldata_2/tutorial_2</string>
+			<key>score</key>
+			<integer>0</integer>
+			<key>pic</key>
+			<string>IMG_0120.PNG</string>
+			<key>levelTitle</key>
+			<string>Meet your enemy</string>
+		</dict>
+	</array>
+	<key>levels</key>
+	<array>
+		<dict>
+			<key>id</key>
+			<string>TUT</string>
+			<key>score</key>
+			<integer>0</integer>
+			<key>pic</key>
+			<string>tutorials_preview.png</string>
+			<key>levelTitle</key>
+			<string>Tutorials</string>
+			<key>par</key>
+			<integer>100</integer>
+			<key>tbl</key>
+			<integer>600</integer>
+		</dict>
+        
+        
+        
+        <!-- GENERATED LEVELS -->
+        
+        %(levels)s
+        
+         <!-- END GENERATED LEVELS -->
+         
+         
+	</array>
+</dict>
+</plist>

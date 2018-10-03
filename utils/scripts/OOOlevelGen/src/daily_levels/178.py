@@ -1,0 +1,22 @@
+import LevelBuilder
+from sprites import *
+def render(name,bg):
+    lb = LevelBuilder.LevelBuilder(name+".plist",background=bg)
+    lb.addObject(Beam.BeamSprite(x=218, y=139,width=127,height=28,angle='-30' ,static='true' ))
+    lb.addObject(Beam.BeamSprite(x=304, y=166,width=127,height=28,angle='60' ,static='true' ))
+    lb.addObject(Friend.FriendSprite(x=270, y=111,width=32,height=32,angle='0',static='true' ))
+    lb.addObject(Beam.BeamSprite(x=195, y=224,width=127,height=28,angle='-30' ,static='true' ))
+    lb.addObject(Beam.BeamSprite(x=281, y=251,width=127,height=28,angle='60' ,static='true' ))
+    lb.addObject(Friend.FriendSprite(x=247, y=196,width=32,height=32,angle='0',static='true' ))
+    lb.addObject(Beam.BeamSprite(x=329, y=298,width=63,height=28,angle='-30' ,static='true' ))
+    lb.addObject(Star.StarSprite(x=222, y=173,width=32,height=32))
+    lb.addObject(Enemy.EnemySprite(x=304, y=230,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Enemy.EnemySprite(x=189, y=191,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Nut.NutSprite(x=425, y=319,width=14,height=14,restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(SpikeyBuddy.SpikeyBuddySprite(x=348, y=247,width=32,height=32,restitution=0.8,static='false',friction=1,density=3 ))
+    lb.addObject(Hero.HeroSprite(x=425, y=19,width=32,height=32))
+    lb.addObject(Joints.DistanceJoint(body1='Nut',body2='Spikey',damping='0.2',freq='20'))
+    lb.addObject(Friend.FriendSprite(x=163, y=279,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Enemy.EnemySprite(x=52, y=53,width=98,height=98,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Bomb.BombSprite(x=256, y=156,width=32,height=32 ,restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.render()

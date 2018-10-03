@@ -1,0 +1,21 @@
+import LevelBuilder
+from sprites import *
+def render(name,bg):
+    lb = LevelBuilder.LevelBuilder(name+".plist",background=bg)
+    lb.addObject(Beam.BeamSprite(x=323, y=195,width=127,height=14,angle='0',restitution=0.2,static='false',friction=0.5,density=1 ).setName('lever'))
+    lb.addObject(Hero.HeroSprite(x=26, y=26,width=32,height=32))
+    lb.addObject(Star.StarSprite(x=458, y=218,width=32,height=32))
+    lb.addObject(Joints.RevoluteJoint(body1='Enemy_Hook',body2='lever',motor_speed='1',enable_motor='true',torque='100000',lower_angle='45',upper_angle='90',enable_limit='false',collide_connected='false'))
+    lb.addObject(Enemy.EnemySprite(x=257, y=76,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=1 ).setName('Enemy_1'))
+    lb.addObject(Enemy.EnemySprite(x=391, y=107,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=1 ).setName('Enemy_2'))
+    lb.addObject(Joints.DistanceJoint(body1='lever',body2='Enemy_1',damping='0.2',freq='5' , b1_Xoffset = '-60' ))
+    lb.addObject(Joints.DistanceJoint(body1='lever',body2='Enemy_2',damping='0.2',freq='5' , b1_Xoffset = '60' ))
+    lb.addObject(Enemy.EnemySprite(x=323, y=195,width=32,height=32,angle='0',restitution=0.2,static='true',friction=0.5,density=20 ).setName('Enemy_Hook'))
+    lb.addObject(Beam.BeamSprite(x=496, y=194,width=127,height=14,angle='0',restitution=0.2,static='true',friction=0.5,density=20 ).setName('Beam'))
+    lb.addObject(Friend.FriendSprite(x=302, y=273,width=32,height=32,angle='0',restitution=0.9,static='false',friction=0.5,density=20 ).setName('Friend'))
+    lb.addObject(Enemy.EnemySprite(x=411, y=235,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Enemy.EnemySprite(x=237, y=216,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.addObject(Contacts.Contact(body1='Enemy_2',body2='Hero',event_name='onLose'))
+    lb.addObject(Contacts.Contact(body1='Enemy_1',body2='Hero',event_name='onLose'))
+    lb.addObject(Beam.BeamSprite(x=496, y=245,width=127,height=14,angle='0',restitution=0.2,static='true',friction=0.5,density=20 ).setName('Beam'))
+    lb.render()

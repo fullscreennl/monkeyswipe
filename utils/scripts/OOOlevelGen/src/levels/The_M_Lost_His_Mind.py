@@ -1,0 +1,20 @@
+import LevelBuilder
+from sprites import *
+def render(name,bg):
+    lb = LevelBuilder.LevelBuilder(name+".plist",background=bg)
+    lb.addObject(Friend.FriendSprite(x=329, y=242,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ).setName('Friend_3'))
+    lb.addObject(Friend.FriendSprite(x=229, y=261,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ).setName('Friend_2'))
+    lb.addObject(Friend.FriendSprite(x=139, y=232,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ).setName('Friend_1'))
+    lb.addObject(Contacts.Contact(body1='Enemy_1',body2='Hero',event_name='onLose'))
+    lb.addObject(Contacts.Contact(body1='Enemy_2',body2='Hero',event_name='onLose'))
+    lb.addObject(Contacts.Contact(body1='Enemy_3',body2='Hero',event_name='onLose'))
+    lb.addObject(Beam.BeamSprite(x=231, y=195,width=233,height=14,angle='0',restitution=0.2,static='true',friction=0.5,density=20 ).setName('Beam'))
+    lb.addObject(Enemy.EnemySprite(x=152, y=241,width=78,height=78,angle='0',restitution=0.2,static='false',friction=0.5,density=1 ).setName('Enemy_1'))
+    lb.addObject(Enemy.EnemySprite(x=231, y=241,width=78,height=78,angle='0',restitution=0.2,static='false',friction=0.5,density=1 ).setName('Enemy_2'))
+    lb.addObject(Enemy.EnemySprite(x=311, y=241,width=78,height=78,angle='0',restitution=0.2,static='false',friction=0.5,density=1 ).setName('Enemy_3'))
+    lb.addObject(Joints.RevoluteJoint(body1='Enemy_1',body2='Friend_1',motor_speed='5',enable_motor='true',torque='1000',lower_angle='12',upper_angle='50',enable_limit='false',collide_connected='false'))
+    lb.addObject(Joints.RevoluteJoint(body1='Enemy_2',body2='Friend_2',motor_speed='10',enable_motor='true',torque='1000',lower_angle='12',upper_angle='50',enable_limit='false',collide_connected='false'))
+    lb.addObject(Joints.RevoluteJoint(body1='Enemy_3',body2='Friend_3',motor_speed='1',enable_motor='true',torque='1000',lower_angle='12',upper_angle='50',enable_limit='false',collide_connected='false'))
+    lb.addObject(Hero.HeroSprite(x=28, y=28,width=32,height=32))
+    lb.addObject(Star.StarSprite(x=272, y=296,width=32,height=32))
+    lb.render()

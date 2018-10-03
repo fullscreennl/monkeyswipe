@@ -1,0 +1,20 @@
+import LevelBuilder
+from sprites import *
+def render(name,bg):
+    lb = LevelBuilder.LevelBuilder(name+".plist",background=bg)
+    lb.addObject(Beam.BeamSprite(x=230, y=140,width=293,height=14,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ).setName('wip_wap'))
+    lb.addObject(Nut.NutSprite(x=230, y=140,width=32,height=32,restitution=0.2,static='true',friction=0.5,density=20 ).setName('Nut'))
+    lb.addObject(Hero.HeroSprite(x=24, y=76,width=32,height=32))
+    lb.addObject(Joints.DistanceJoint(body1='Hook',body2='Hero',damping='0.2',freq='30' ))
+    lb.addObject(Beam.BeamSprite(x=23, y=137,width=10,height=10,angle='0',restitution=0.2,static='true',friction=0.5,density=20 ).setName('Hook'))
+    lb.addObject(Star.StarSprite(x=401, y=287,width=16,height=16))
+    lb.addObject(Friend.FriendSprite(classname = 'AccelFriendSprite', x=230, y=186,width=50,height=50,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ).setName('Friend'))
+    lb.addObject(Beam.BeamSprite(x=230, y=55,width=127,height=14,angle='90',restitution=0.2,static='true',friction=0.5,density=20 ).setName('Beam'))
+    lb.addObject(Star.StarSprite(x=418, y=287,width=16,height=16))
+    lb.addObject(Star.StarSprite(x=436, y=288,width=16,height=16))
+    lb.addObject(Star.StarSprite(x=454, y=288,width=16,height=16))
+    lb.addObject(Star.StarSprite(x=472, y=289,width=16,height=16))
+    lb.addObject(Beam.BeamSprite(x=425, y=274,width=126,height=14,angle='2',restitution=0.2,static='true',friction=0.5,density=20 ).setName('Beam'))
+    lb.addObject(Joints.RevoluteJoint(body1='Nut',body2='wip_wap',motor_speed='50',enable_motor='false',torque='1000',lower_angle='12',upper_angle='50',userData='rev_joint',enable_limit='false',collide_connected='false'))
+    lb.addObject(Enemy.EnemySprite(x=377, y=298,width=32,height=32,angle='0',restitution=0.2,static='false',friction=0.5,density=20 ))
+    lb.render()

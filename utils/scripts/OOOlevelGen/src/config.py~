@@ -1,0 +1,6 @@
+#EXPORT_PATH = "/Users/johantenbroeke/Sites/projects/fullscreen_3/xcodeprojects/oneonone/Resources/leveldata/"
+EXPORT_PATH = "/Users/johantenbroeke/Sites/projects/fullscreen_3/xcodeprojects/oneonone/daily_leveldata/"
+GAMEPROGRESS_PATH =  "/Users/johantenbroeke/Sites/projects/fullscreen_3/xcodeprojects/oneonone/Resources/"
+
+#EXPORT_PATH = "./testing/"
+#GAMEPROGRESS_PATH =  "./testing/"
