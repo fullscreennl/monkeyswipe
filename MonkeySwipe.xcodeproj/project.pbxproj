@@ -330,6 +330,7 @@
 		90B63AFB114857520056BA04 /* okay_edit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B63AFA114857520056BA04 /* okay_edit.wav */; };
 		90ED3CA3216509BA00A78E5D /* MainRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90ED3CA1216509BA00A78E5D /* MainRootViewController.m */; };
 		90ED3CA4216509BA00A78E5D /* MainRootViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 90ED3CA2216509BA00A78E5D /* MainRootViewController.h */; };
+		90ED3CA6216530E800A78E5D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90ED3CA5216530E800A78E5D /* Images.xcassets */; };
 		90FF222D1670B31D00EBE634 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FF222C1670B31C00EBE634 /* Icon.png */; };
 		90FF222F1670B32C00EBE634 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FF222E1670B32C00EBE634 /* Icon@2x.png */; };
 		90FF22341670B34300EBE634 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FF22301670B34200EBE634 /* Icon-72.png */; };
@@ -882,6 +883,7 @@
 		90B63AFA114857520056BA04 /* okay_edit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = okay_edit.wav; sourceTree = "<group>"; };
 		90ED3CA1216509BA00A78E5D /* MainRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainRootViewController.m; sourceTree = "<group>"; };
 		90ED3CA2216509BA00A78E5D /* MainRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainRootViewController.h; sourceTree = "<group>"; };
+		90ED3CA5216530E800A78E5D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		90FF222C1670B31C00EBE634 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		90FF222E1670B32C00EBE634 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		90FF22301670B34200EBE634 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -1677,6 +1679,7 @@
 				FA660AE4113FA524006A038A /* leveldata */,
 				FAF19F1C1289796F003C1F93 /* Info.plist */,
 				FAF19F7212898501003C1F93 /* Default@2x.png */,
+				90ED3CA5216530E800A78E5D /* Images.xcassets */,
 				50F4144410692EE7002A0D5E /* Default.png */,
 			);
 			path = Resources;
@@ -2190,6 +2193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90ED3CA6216530E800A78E5D /* Images.xcassets in Resources */,
 				50F4144810692EE7002A0D5E /* blocks.png in Resources */,
 				50F4144910692EE7002A0D5E /* Default.png in Resources */,
 				50F4144A10692EE7002A0D5E /* fps_images.png in Resources */,

@@ -77,7 +77,7 @@
 	//NSLog(@"touches pos: %3f",location.y);
 	if (!busyUpgrading) {
 		[[SimpleAudioEngine sharedEngine] playEffect:@"btnTap.wav"];
-		if(location.y > 250.0f) {
+		if(location.x > 250.0f) {
 				busyUpgrading = YES;
 				BOOL success = [[OOOLevelManager sharedLevelManager] incrementLevel];
 				if (success){
@@ -85,7 +85,7 @@
 				}else {
 					[self showActivityIndicator];
 				}
-		}else if(location.y < 100.0f){
+		}else if(location.x < 100.0f){
 			[self goMenu];		
 			busyUpgrading = NO;
 			[self hideActivityIndicator];

@@ -16,9 +16,9 @@
 	if( (self=[super init])) {
 		
         NSString *deviceUDID = @"iPhone";
-		NSString *script_url = @"http://www.fullscreen.nl/monkeyswipe_app/check.php?devid=";
-		NSString *url_str = [script_url stringByAppendingString:deviceUDID];
-		NSURL *url = [NSURL URLWithString:url_str];
+		NSString *script_url = @"https://www.blackstripes.nl/";
+		//NSString *url_str = [script_url stringByAppendingString:deviceUDID];
+		NSURL *url = [NSURL URLWithString:script_url];
 		ping = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
 	}
 	return self;
