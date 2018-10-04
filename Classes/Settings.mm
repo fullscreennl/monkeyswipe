@@ -37,9 +37,9 @@
 	UITouch *touch = [touches anyObject];
 	CGPoint location = [touch locationInView: [touch view]];
 	//NSLog(@"touches pos: %3f",location.x);
-	if (location.x>130.0f and location.x<200.0f) {
+	if (location.y>130.0f and location.y<200.0f) {
 		[self toggleSound];
-	}else if(location.x>30 and location.x<120.0f) {
+	}else if(location.y>200 ) {
 		[self toggleDoodle];
 	}
 	
