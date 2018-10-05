@@ -50,7 +50,12 @@
 		//[self addChild:ballsheet z:0 tag:kTagSpriteSheetBall];
 		
 		//CCSprite *sprite = [CCSprite spriteWithFile:@"splash_mockup.png"];
-		CCSprite *sprite = [CCSprite spriteWithFile:@"splash_test.png"];
+        CCSprite *sprite = nil;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+            sprite = [CCSprite spriteWithFile:@"splash_test_ipad.png"];
+        }else{
+            sprite = [CCSprite spriteWithFile:@"splash_test.png"];
+        }
 		[self addChild:sprite];
 		sprite.position = ccp( screenSize.width/2, screenSize.height/2);
 		

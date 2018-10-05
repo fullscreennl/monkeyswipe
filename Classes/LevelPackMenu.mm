@@ -15,6 +15,7 @@
 #import "OOOLevelManager.h"
 #import "Credits.h"
 #import "SimpleAudioEngine.h"
+#import "oneononeAppDelegate.h"
 
 
 @implementation LevelPackMenu
@@ -40,11 +41,17 @@
 		
 		CGSize screenSize = [CCDirector sharedDirector].winSize;
 		//CCLOG(@"Screen width in mainMenu %0.2f screen height %0.2f",screenSize.width,screenSize.height);
-		CCSprite *sprite = [CCSprite spriteWithFile:@"splash_mockup.png"];
+        CCSprite *sprite = nil;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+            sprite = [CCSprite spriteWithFile:@"splash_mockup_ipad.png"];
+        }else{
+            sprite = [CCSprite spriteWithFile:@"splash_mockup.png"];
+        }
 		[self addChild:sprite];
 		sprite.position = ccp( screenSize.width/2, screenSize.height/2);
 		CCSprite *titleSpr = [CCSprite spriteWithFile:@"monkey_swipe_title.png"];
-		titleSpr.position=ccp(240.0f, 240.0f);
+        CGPoint center = [(oneononeAppDelegate*)[[UIApplication sharedApplication] delegate] getScreenCenter];
+		titleSpr.position=ccp(center.x, .75 * screenSize.height);
 		[self addChild:titleSpr];
 		
 		
@@ -54,7 +61,7 @@
 		
 		CCMenu *menu = [CCMenu menuWithItems:nil];
 		
-		menu.position = ccp(240, 100);
+		menu.position = ccp(center.x, 0.3 * screenSize.height);
 		
 		CCSprite *upsprite = nil;
 		CCSprite *downsprite = nil;
@@ -112,7 +119,7 @@
 		[titleSpr runAction:[CCRepeatForever actionWithAction:seq]];
 		
 		CCSprite *decalSpr = [CCSprite spriteWithFile:@"decals.png"];
-		decalSpr.position=ccp(240.0f, 160.0f);
+		decalSpr.position=ccp(center.x, center.y - 100);
 		[self addChild:decalSpr];
 		id fadeIn_action = [CCFadeIn actionWithDuration:3 ];
 		[decalSpr runAction:[CCEaseIn actionWithAction:fadeIn_action rate:2]];

@@ -11,8 +11,12 @@
 #import "SimpleAudioEngine.h"
 #import "Previews.h"
 #import "LevelPackMenu.h"
+//#import "oneononeAppDelegate.h"
 
 @implementation OOOLevelMap
+
+CGPoint screenCenter;
+CGSize screenSize;
 
 +(id) scene
 {
@@ -149,7 +153,10 @@
 		[menu6 alignItemsHorizontallyWithPadding:5.0];
 		[menu7 alignItemsHorizontallyWithPadding:5.0];
 		[menu8 alignItemsHorizontallyWithPadding:5.0];
-		
+       // CGSize screenSize = [(oneononeAppDelegate*)[[UIApplication sharedApplication] delegate] getScreenSize];
+       // CGPoint screenCenter = [(oneononeAppDelegate*)[[UIApplication sharedApplication] delegate] getScreenCenter];
+        screenCenter = CGPointMake(512,384);
+        screenSize = CGSizeMake(1024,768 );
 		//menu.scaleX = 0.85;
 		//menu.scaleY = 0.85;
 		
@@ -158,15 +165,15 @@
 		menucont1 = [CCLayer node];
 		menucont2 = [CCLayer node];
 		int yspacing = 58 + 5;
-		int toppos = 280;
-		menu1.position = ccp(240.0, toppos);
-		menu2.position = ccp(240.0, toppos - yspacing);
-		menu3.position = ccp(240.0, toppos- 2*yspacing);		
-		menu4.position = ccp(240.0, toppos- 3*yspacing);
-		menu5.position = ccp(240.0, toppos);
-		menu6.position = ccp(240.0, toppos- yspacing);
-		menu7.position = ccp(240.0, toppos - 2*yspacing);
-		menu8.position = ccp(240.0, toppos- 3*yspacing);		
+        float toppos =   .875 * screenSize.height;
+		menu1.position = ccp(screenCenter.x, toppos);
+		menu2.position = ccp(screenCenter.x, toppos - yspacing);
+		menu3.position = ccp(screenCenter.x, toppos- 2*yspacing);
+		menu4.position = ccp(screenCenter.x, toppos- 3*yspacing);
+		menu5.position = ccp(screenCenter.x, toppos);
+		menu6.position = ccp(screenCenter.x, toppos- yspacing);
+		menu7.position = ccp(screenCenter.x, toppos - 2*yspacing);
+		menu8.position = ccp(screenCenter.x, toppos- 3*yspacing);		
 
 		[menucont1 addChild:menu1];
 		[menucont1 addChild:menu2];
@@ -178,7 +185,14 @@
 		[menucont2 addChild:menu8];
 		[self addChild:menucont1];
 		[self addChild:menucont2];
-		menucont2.position =ccp(1.5 *480 , 0);
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+            menucont1.scale = screenSize.width/ 480.0;
+            menucont1.position = ccp(0, -320);
+            menucont2.scale = screenSize.width/ 480.0;
+            menucont2.position =ccp(1.5 *screenSize.width , -320);
+        }
+        NSLog(@"menu scale: %f", menucont1.scale);
+		menucont2.position =ccp(1.5 *screenSize.width , 0);
 	}
 	
 	//CCBitmapFontAtlas *label1 = [CCBitmapFontAtlas bitmapFontAtlasWithString:@"Monkey Swipe to the resque!" fntFile:@"markerfelt.fnt"];
@@ -279,7 +293,7 @@
 {
 	//NSLog(@"menu cliked -> !%@",sender);
 	//NSLog(@"menu cliked -> !%@",[sender userData]);
-	NSDictionary *userinfo = [NSDictionary dictionaryWithObjectsAndKeys:[sender userData],@"level_ind",
+	NSDictionary *userinfo = [NSDictionary dictionaryWithObjectsAndKeys:[sender userData], @"level_ind",
 																		[NSNumber numberWithBool:[levelManager hasTutorial]],@"tutorial",
 																		nil];
 	[[NSNotificationCenter defaultCenter] 
@@ -313,19 +327,19 @@
 	if(pol==-1){
 		subMenu2.position = ccp(240, -30);
 		subMenu.position = ccp(240, 30);
-		menucont2.position =ccp(1.5 *480 , 0);
-		menucont1.position = ccp(0,0);
+		menucont2.position =ccp(1.5 *screenSize.width , -320);
+		menucont1.position = ccp(0,-320);
 	}else{
 		subMenu2.position = ccp(240, 30);
 		subMenu.position = ccp(240, -30);
-		menucont2.position =ccp(0 , 0);
-		menucont1.position = ccp(-1.5 *480,0);
+		menucont2.position =ccp(0 , -320);
+		menucont1.position = ccp(-1.5 *screenSize.width,-320);
 	}
 	//menucont2.position =ccp(0 , 0);
-	id move = [CCMoveBy actionWithDuration:2.0f position:ccp(pol*1.5*480,0)];
+	id move = [CCMoveBy actionWithDuration:2.0f position:ccp(pol*1.5*screenSize.width,0)];
 	id moveEased = [CCEaseElasticOut actionWithAction:move period:.3]; 
 	[menucont2 runAction:moveEased]; 
-	id move2 = [CCMoveBy actionWithDuration:2.0f position:ccp(pol*1.5*480,0)];
+	id move2 = [CCMoveBy actionWithDuration:2.0f position:ccp(pol*1.5*screenSize.width,0)];
 	id moveEased2 = [CCEaseElasticOut actionWithAction:move2 period:.3];
 	[menucont1 runAction:moveEased2];
 	

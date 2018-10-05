@@ -18,6 +18,8 @@
 	NSDictionary *daily_level_dict; 
 	NSString *last_played_level_id;
     UIViewController *controller;
+    int screenWidth;
+    int screenHeight;
 }
 
 @property (nonatomic, retain) UIWindow *window;
@@ -30,5 +32,7 @@
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 -(int) getDayNumber;
 -(void)showLeaderboard:(NSNotification*)note;
-- (void) authenticateLocalPlayer;
+-(void) authenticateLocalPlayer;
+-(CGSize)getScreenSize;
+-(CGPoint)getScreenCenter;
 @end

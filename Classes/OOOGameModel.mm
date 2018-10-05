@@ -5,14 +5,15 @@
 //  Created by Johan ten Broeke on 2/21/10.
 //  Copyright 2010 fullscreen.nl. All rights reserved.
 //
-#define PTM_RATIO 32
-#define SCREEEN_WIDTH 480
-#define SCREEEN_HEIGHT 320
+#define PTM_RATIO 64
+#define SCREEEN_WIDTH 1024
+#define SCREEEN_HEIGHT 768
 
 #import "OOOGameModel.h"
 #import "OOONotificationNames.h"
 #import "cocos2d.h"
 #import "OOOContactListener.h"
+#import "oneononeAppDelegate.h"
 
 @implementation OOOGameModel
 
@@ -91,6 +92,22 @@
 	
 }
 
+-(CGFloat)calcAspect:(CGSize)screensize{
+    return screensize.width / screensize.height;
+}
+
+-(CGFloat)calculateDisplayMultiplier{
+    CGSize oriSize = CGSizeMake(480,320);
+    CGSize screenSize = [(oneononeAppDelegate*)[[UIApplication sharedApplication] delegate] getScreenSize];
+    float factor = 1.0f;
+    if ([self calcAspect:oriSize] > [self calcAspect:screenSize]){
+        factor = screenSize.width / oriSize.width;
+    }else{
+        factor = screenSize.height / oriSize.height;
+    }
+    return factor;
+}
+
 -(b2World *)getWorld{
 	return world;
 }
@@ -116,7 +133,8 @@
 
 -(void)onExplosionRequested: (NSNotification *)note{
 	
-	float maxDistance = 10; 
+    float mp = [self calculateDisplayMultiplier];
+	float maxDistance = mp*10;
 	float power = 7;
 	float distance; 
 	
@@ -266,17 +284,17 @@
 }
 
 -(void) createDistJoint: (NSDictionary *) joint_dict{
-
+    float mp = [self calculateDisplayMultiplier];
 	NSString * body1 = [joint_dict objectForKey:@"body1"];
 	NSString * body2 = [joint_dict objectForKey:@"body2"];
 	
 	float freq = [[joint_dict objectForKey:@"frequencyHz"] floatValue];
 	float dmp = [[joint_dict objectForKey:@"dampingRatio"] floatValue];
 	
-	float b1_Xoffset = [[joint_dict objectForKey:@"b1_Xoffset"] floatValue]/PTM_RATIO;
-	float b1_Yoffset = [[joint_dict objectForKey:@"b1_Yoffset"] floatValue]/PTM_RATIO;
-	float b2_Xoffset = [[joint_dict objectForKey:@"b2_Xoffset"] floatValue]/PTM_RATIO;
-	float b2_Yoffset = [[joint_dict objectForKey:@"b2_Yoffset"] floatValue]/PTM_RATIO;
+	float b1_Xoffset = mp * [[joint_dict objectForKey:@"b1_Xoffset"] floatValue]/PTM_RATIO;
+	float b1_Yoffset = mp * [[joint_dict objectForKey:@"b1_Yoffset"] floatValue]/PTM_RATIO;
+	float b2_Xoffset = mp * [[joint_dict objectForKey:@"b2_Xoffset"] floatValue]/PTM_RATIO;
+	float b2_Yoffset = mp * [[joint_dict objectForKey:@"b2_Yoffset"] floatValue]/PTM_RATIO;
 	
 	//NSLog(@"x offset %f",b1_Xoffset);
 	
@@ -298,9 +316,9 @@
 }
 
 -(b2Body *)createCompoundPhysicsWithSpriteAttached:(OOOGameSprite *)sprite andDict:(NSDictionary *)dict{
-	
-	float x = [[[dict objectForKey:@"body"] objectForKey:@"x"]floatValue];
-	float y = [[[dict objectForKey:@"body"] objectForKey:@"y"]floatValue];
+	float mp = [self calculateDisplayMultiplier];
+	float x = mp * [[[dict objectForKey:@"body"] objectForKey:@"x"]floatValue];
+	float y = mp * [[[dict objectForKey:@"body"] objectForKey:@"y"]floatValue];
 	float degAngle = [[[dict objectForKey:@"body"] objectForKey:@"angle"]floatValue];
 	
 	// Define the body.
@@ -332,14 +350,14 @@
 		NSDictionary* shape_dict = [shapes objectAtIndex:i];
 		
 		float f = [[shape_dict objectForKey:@"friction"] floatValue];
-		float d = [[shape_dict objectForKey:@"density"] floatValue];
+		float d = [[shape_dict objectForKey:@"density"] floatValue] / mp*mp;
 		float r = [[shape_dict objectForKey:@"restitution"] floatValue];
 		
-		float w = [[shape_dict objectForKey:@"width"] floatValue];
-		float h = [[shape_dict objectForKey:@"height"] floatValue];
+		float w = mp * [[shape_dict objectForKey:@"width"] floatValue];
+		float h = mp * [[shape_dict objectForKey:@"height"] floatValue];
 		
-		float xpos = [[shape_dict objectForKey:@"x"] floatValue];
-		float ypos = [[shape_dict objectForKey:@"y"] floatValue];
+		float xpos = mp * [[shape_dict objectForKey:@"x"] floatValue];
+		float ypos = mp * [[shape_dict objectForKey:@"y"] floatValue];
 		
 		NSString *userData = [shape_dict objectForKey:@"userData"];
 		//NSString *userData = [[shape_dict objectForKey:@"userData"] retain];
@@ -351,7 +369,7 @@
 			circ.m_p.Set(xpos/PTM_RATIO,ypos/PTM_RATIO);
 			fixtureDef.shape = &circ;
 		}else if ([sprite_type isEqual:@"rect"]) {
-			dynamicBox.SetAsBox(w/PTM_RATIO/2, h/PTM_RATIO/2, b2Vec2(xpos/PTM_RATIO,ypos/PTM_RATIO), 0.0f);
+			dynamicBox.SetAsBox( w/PTM_RATIO/2,  h/PTM_RATIO/2, b2Vec2( xpos/PTM_RATIO,ypos/PTM_RATIO), 0.0f);
 			fixtureDef.shape = &dynamicBox;
 		}else if ([sprite_type isEqual:@"poly"]) {
 			NSString *points_str = [shape_dict objectForKey:@"points_CCW"];
@@ -360,8 +378,8 @@
 			b2Vec2 vertices[c];
 			for (int j = 0; j < c; j++) {
 				NSArray* p = [[points_arr objectAtIndex:j] componentsSeparatedByString:@"|"];
-				float _x = [[p objectAtIndex:0] floatValue];
-				float _y = [[p objectAtIndex:1] floatValue];
+				float _x = mp * [[p objectAtIndex:0] floatValue];
+				float _y = mp * [[p objectAtIndex:1] floatValue];
 				vertices[j].Set(_x/PTM_RATIO,_y/PTM_RATIO);
 			}
 			dynamicBox.Set(vertices,c);

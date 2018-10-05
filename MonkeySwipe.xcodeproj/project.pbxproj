@@ -331,6 +331,9 @@
 		90ED3CA3216509BA00A78E5D /* MainRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90ED3CA1216509BA00A78E5D /* MainRootViewController.m */; };
 		90ED3CA4216509BA00A78E5D /* MainRootViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 90ED3CA2216509BA00A78E5D /* MainRootViewController.h */; };
 		90ED3CA6216530E800A78E5D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90ED3CA5216530E800A78E5D /* Images.xcassets */; };
+		90EFC3352167F641005336C9 /* red_bg_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EFC3342167F641005336C9 /* red_bg_ipad.png */; };
+		90EFC3372167FA1E005336C9 /* splash_test_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EFC3362167FA1E005336C9 /* splash_test_ipad.png */; };
+		90EFC3392167FA67005336C9 /* splash_mockup_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EFC3382167FA66005336C9 /* splash_mockup_ipad.png */; };
 		90FF222D1670B31D00EBE634 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FF222C1670B31C00EBE634 /* Icon.png */; };
 		90FF222F1670B32C00EBE634 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FF222E1670B32C00EBE634 /* Icon@2x.png */; };
 		90FF22341670B34300EBE634 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 90FF22301670B34200EBE634 /* Icon-72.png */; };
@@ -882,6 +885,9 @@
 		90ED3CA1216509BA00A78E5D /* MainRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainRootViewController.m; sourceTree = "<group>"; };
 		90ED3CA2216509BA00A78E5D /* MainRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainRootViewController.h; sourceTree = "<group>"; };
 		90ED3CA5216530E800A78E5D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		90EFC3342167F641005336C9 /* red_bg_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_bg_ipad.png; sourceTree = "<group>"; };
+		90EFC3362167FA1E005336C9 /* splash_test_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_test_ipad.png; sourceTree = "<group>"; };
+		90EFC3382167FA66005336C9 /* splash_mockup_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_mockup_ipad.png; sourceTree = "<group>"; };
 		90FF222C1670B31C00EBE634 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		90FF222E1670B32C00EBE634 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		90FF22301670B34200EBE634 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -1720,6 +1726,8 @@
 				9045E34D1157682F00FBFAD9 /* friend_doodle_loud.png */,
 				9045E34E1157682F00FBFAD9 /* friend_doodle_silent.png */,
 				9045DE031150F6A600FBFAD9 /* monkey_swipe_title.png */,
+				90EFC3362167FA1E005336C9 /* splash_test_ipad.png */,
+				90EFC3382167FA66005336C9 /* splash_mockup_ipad.png */,
 				9045DDEC1150F21400FBFAD9 /* splash_mockup.png */,
 				FAF6EA66115CE4A90057333B /* splash_test.png */,
 				FA2BEDF6117867DE00AD77A8 /* daily_swipe_cutscene_bg.png */,
@@ -1756,6 +1764,7 @@
 			isa = PBXGroup;
 			children = (
 				FA0596E6116DFD1C00E16777 /* blue_bg.png */,
+				90EFC3342167F641005336C9 /* red_bg_ipad.png */,
 				FAC690261173BF93007E1FF2 /* Cableway.png */,
 				FAC690271173BF93007E1FF2 /* Cableway.plist */,
 				FA0596E7116DFD1C00E16777 /* green_bg.png */,
@@ -2199,6 +2208,7 @@
 				FAB32FC911366E0F008F5B32 /* blocks.plist in Resources */,
 				FAB94AAB113BC88400891E82 /* popup.plist in Resources */,
 				FA0DD12F113D571E009D5D38 /* gameprogress.plist in Resources */,
+				90EFC3372167FA1E005336C9 /* splash_test_ipad.png in Resources */,
 				FA82326D113E66B5001F12D4 /* level_map.plist in Resources */,
 				FA8233B3113E8900001F12D4 /* level_map.png in Resources */,
 				FAEB5B0F11478F5F00DB3F7C /* test_texture.plist in Resources */,
@@ -2210,6 +2220,7 @@
 				FA0C406D114981FC00A31781 /* tutorial_3.plist in Resources */,
 				FA0C406E114981FC00A31781 /* tutorial_4.plist in Resources */,
 				FA0C40711149823200A31781 /* tut_textures.plist in Resources */,
+				90EFC3352167F641005336C9 /* red_bg_ipad.png in Resources */,
 				FA0C40721149823200A31781 /* tut_textures.png in Resources */,
 				90AE39FE114A36F300B80042 /* tutorial_scene_background_2_480_320.png in Resources */,
 				90AE39FF114A36F300B80042 /* tutorial_scene_background_3_480_320.png in Resources */,
@@ -2255,6 +2266,7 @@
 				FA3DC521115E558300860B9E /* MarkerFelt_Brown.png in Resources */,
 				FA3DC522115E558300860B9E /* MarkerFelt_Brown.fnt in Resources */,
 				FA80791B11612E380025AB76 /* upgrade_cutscene_bg.png in Resources */,
+				90EFC3392167FA67005336C9 /* splash_mockup_ipad.png in Resources */,
 				FA80791F11612E380025AB76 /* creditBG_3_refl.png in Resources */,
 				FA98006111649B3000F9D9BE /* doodle_bg.png in Resources */,
 				FA9800B81164D3AF00F9D9BE /* highscore_decal.png in Resources */,
@@ -2603,6 +2615,7 @@
 				PRODUCT_NAME = MonkeySwipe;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WARNING_CFLAGS = "-Wall";
 			};
@@ -2638,6 +2651,7 @@
 				PRODUCT_NAME = MonkeySwipe;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WARNING_CFLAGS = "-Wall";
 			};
@@ -2843,6 +2857,7 @@
 				PRODUCT_NAME = MonkeySwipe;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WARNING_CFLAGS = "-Wall";
 			};
@@ -2941,6 +2956,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.appjuice.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = MonkeySwipe;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WARNING_CFLAGS = "-Wall";
 			};

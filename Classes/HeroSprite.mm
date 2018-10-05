@@ -8,7 +8,7 @@
 
 #import "HeroSprite.h"
 #import "Box2D.h"
-
+#import "oneononeAppDelegate.h"
 
 @implementation HeroSprite
 
@@ -67,9 +67,27 @@
 }
 */
 
+-(CGFloat)calcAspect:(CGSize)screensize{
+    return screensize.width / screensize.height;
+}
+
+-(CGFloat)calculateDisplayMultiplier{
+    CGSize oriSize = CGSizeMake(480,320);
+    CGSize screenSize = [(oneononeAppDelegate*)[[UIApplication sharedApplication] delegate] getScreenSize];
+    float factor = 1.0f;
+    if ([self calcAspect:oriSize] > [self calcAspect:screenSize]){
+        factor = screenSize.width / oriSize.width;
+    }else{
+        factor = screenSize.height / oriSize.height;
+    }
+    return factor;
+}
+
 -(void) onSwipe:(NSNotification *) note{
+    float mp = [self calculateDisplayMultiplier];
 	b2Vec2 point(myBody->GetPosition().x, myBody->GetPosition().y);
-	b2Vec2 impulse(-[[[note userInfo] objectForKey:@"dx"] floatValue],-[[[note userInfo] objectForKey:@"dy"] floatValue]);
+	b2Vec2 impulse(-[[[note userInfo] objectForKey:@"dx"] floatValue]*mp*mp,-[[[note userInfo] objectForKey:@"dy"] floatValue]*mp*mp);
+    
 	myBody->ApplyImpulse(impulse,point);	
 }
 

@@ -33,6 +33,15 @@
 
 @synthesize window;
 
+
+-(CGSize)getScreenSize{
+    return CGSizeMake(screenWidth, screenHeight);
+}
+
+-(CGPoint)getScreenCenter{
+    return CGPointMake(screenWidth/2.0, screenHeight/2.0);
+}
+
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
     
@@ -42,6 +51,9 @@
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLeaderboard:) name:@"showLeaderboard" object:nil];
 	// cocos2d will inherit these values
+    screenWidth = [[UIScreen mainScreen] bounds].size.width;
+    screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    
 	[window setUserInteractionEnabled:YES];	
 	[window setMultipleTouchEnabled:YES];
 	[self levelDone:NO];

@@ -19,6 +19,7 @@
 #import "OOOQuitLevelLayer.h"
 #import "OOOGameSettingsManager.h"
 #import "OOOTextureCacheManager.h"
+#import "oneononeAppDelegate.h"
 
 @implementation OOOGameView
 
@@ -192,7 +193,8 @@
 	}
 	CCSprite *sprite = [CCSprite spriteWithFile:bg];
 	[bgLayer addChild:sprite z:0 tag:1];
-	sprite.position = ccp(240, 160);
+    CGPoint screenCenter = [(oneononeAppDelegate*)[[UIApplication sharedApplication] delegate] getScreenCenter];
+	sprite.position = ccp(screenCenter.x, screenCenter.y);
 }
 
 -(void)enhanceBackground{
@@ -289,11 +291,27 @@
 		[self drawCompoundWithDict:[comps objectAtIndex:i]];
 	}
 }
+-(CGFloat)calcAspect:(CGSize)screensize{
+    return screensize.width / screensize.height;
+}
+
+-(CGFloat)calculateDisplayMultiplier{
+    CGSize oriSize = CGSizeMake(480,320);
+    CGSize screenSize = [(oneononeAppDelegate*)[[UIApplication sharedApplication] delegate] getScreenSize];
+    float factor = 1.0f;
+    if ([self calcAspect:oriSize] > [self calcAspect:screenSize]){
+        factor = screenSize.width / oriSize.width;
+    }else{
+        factor = screenSize.height / oriSize.height;
+    }
+    return factor;
+}
 
 -(void)drawCompoundWithDict: (NSDictionary *)dict{
 	// get data
-	float w = [[[dict objectForKey:@"body"] objectForKey:@"width"]floatValue];
-	float h = [[[dict objectForKey:@"body"] objectForKey:@"height"]floatValue];
+    float mp = [self calculateDisplayMultiplier];
+	float w = mp * [[[dict objectForKey:@"body"] objectForKey:@"width"]floatValue];
+	float h = mp * [[[dict objectForKey:@"body"] objectForKey:@"height"]floatValue];
 	float x = [[[dict objectForKey:@"body"] objectForKey:@"x"]floatValue];
 	float y = [[[dict objectForKey:@"body"] objectForKey:@"y"]floatValue];
 	
